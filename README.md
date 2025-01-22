@@ -30,9 +30,9 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## TODO
 
-- [ ] Make deploy (vercel)
+- [X] Make deploy (vercel)
 - [X] Scaffold basic ui & mock data
-- [ ] tidy up build process
+- [X] tidy up build process
 - [ ] setup db (vercel postgres)
 - [ ] attach db to ui
 - [ ] add authentication (clerk)
@@ -42,5 +42,3 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [ ] delete button (w/ server actions)
 - [ ] analytics (posthog)
 - [ ] ratelimiting (upstash)
-- [ ]
-- [ ]
