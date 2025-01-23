@@ -33,6 +33,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] Make deploy (vercel)
 - [X] Scaffold basic ui & mock data
 - [X] tidy up build process
+- [ ] setup brave to work with drizzle studio (install mkcert & brew)
 - [ ] setup db (vercel postgres)
 - [ ] attach db to ui
 - [ ] add authentication (clerk)
