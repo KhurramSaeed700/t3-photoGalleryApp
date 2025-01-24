@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -22,7 +23,6 @@ export default function RootLayout({
       <html lang="en" className={`${GeistSans.variable}`}>
         <body className="flex flex-col gap-4 font-sans">
           <TopNav />
-        
           {children}
         </body>
       </html>
