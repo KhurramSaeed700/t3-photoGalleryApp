@@ -35,7 +35,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] tidy up build process
 - [X] setup brave to work with drizzle studio (install mkcert & brew) / my mistake the solution was to just use neon db interface on there site since I used neon db instead of vercel postgres.
 - [X] attach db to ui
-- [ ] add authentication (clerk)
+- [X] add authentication (clerk)
 - [ ] add image upload
 - [ ] error management (sentry)
 - [ ] routing/ image page (parallel route)
