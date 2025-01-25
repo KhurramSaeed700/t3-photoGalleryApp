@@ -38,6 +38,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] add authentication (clerk)
 - [ ] add image upload
 - [ ] error management (sentry)
+- [ ] use Next/Image component
 - [ ] routing/ image page (parallel route)
 - [ ] delete button (w/ server actions)
 - [ ] analytics (posthog)
