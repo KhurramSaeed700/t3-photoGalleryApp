@@ -1,11 +1,15 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Link from "next/link";
-import { db } from "~/server/db";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const images = await db.query.images.findMany({});
+  const images = await getMyImages();
+
+  if (!images.length) {
+    return <div className="text-center text-lg">No images uploaded yet</div>;
+  }
+
   return (
     <div className="flex flex-wrap gap-3">
       {images.map((image) => (
@@ -21,7 +25,9 @@ async function Images() {
 export default async function HomePage() {
   return (
     <main className="pl-3 pr-3">
-      <SignedOut>please sign in</SignedOut>
+      <SignedOut>
+        <div className="text-center text-lg">Sign in to view your images</div>
+      </SignedOut>
       <SignedIn>
         <Images />
       </SignedIn>
