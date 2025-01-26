@@ -12,17 +12,19 @@ async function Images() {
   }
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
       {images.map((image) => (
-        <div key={image.id} className="flex flex-col w-48 h-48">
-          <Image
-            src={image.url}
-            alt={image.name}
-            style={{ objectFit: "cover" }}
-            width={480}
-            height={480}
-          />
-          <div className="text-sm text-center">{image.name}</div>
+        <div key={image.id} className="flex flex-col items-center">
+          <div className="w-full h-48 relative">
+            <Image
+              src={image.url}
+              alt={image.name}
+              layout="fill"
+              objectFit="cover" // Ensures consistent sizing and cropping
+              className="rounded-lg shadow-md"
+            />
+          </div>
+          <div className="text-sm text-center mt-2">{image.name}</div>
         </div>
       ))}
     </div>
