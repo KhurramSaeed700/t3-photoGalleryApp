@@ -12,19 +12,21 @@ async function Images() {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
       {images.map((image) => (
         <div key={image.id} className="flex flex-col items-center">
-          <div className="w-full h-48 relative">
+          <div className="relative h-48 w-full">
             <Image
               src={image.url}
+              width={480}
+              height={480}
               alt={image.name}
-              layout="fill"
-              objectFit="cover" // Ensures consistent sizing and cropping
-              className="rounded-lg shadow-md"
+              style={{ objectFit: "contain" }}
+              loading="lazy" // loading the image until it reaches a calculated distance from the viewport.
+              className="rounded-md shadow-md"
             />
           </div>
-          <div className="text-sm text-center mt-2">{image.name}</div>
+          <div className="text-center text-sm">{image.name}</div>
         </div>
       ))}
     </div>
