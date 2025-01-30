@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   modal
-}: Readonly<{ children: React.ReactNode, modal: React.ReactNode }>) {
+}: { children: React.ReactNode, modal: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
@@ -32,7 +32,7 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <body className="flex flex-col gap-4 font-sans">
+        <body className="flex flex-col gap-4 font-sans" suppressHydrationWarning>
           <TopNav />
           {children}
           {modal}

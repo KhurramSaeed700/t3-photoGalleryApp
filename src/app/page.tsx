@@ -17,7 +17,7 @@ async function Images() {
       {images.map((image) => (
         <div key={image.id} className="flex flex-col items-center">
           <div className="relative h-48 w-full max-w-xs ">
-            <Link href={`/img/${image.id}`}>
+            <a href={`/img/${image.id}`}>
               <Image
                 src={image.url}
                 width={480}
@@ -27,7 +27,7 @@ async function Images() {
                 loading="lazy" // loading the image until it reaches a calculated distance from the viewport.
                 className="rounded-md shadow-md w-full h-full"
               />
-            </Link>
+            </a>
           </div>
           <div className=" text-sm mt-2 max-w-full text-left">{image.name}</div>
         </div>

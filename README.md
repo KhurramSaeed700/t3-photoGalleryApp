@@ -38,8 +38,9 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] add authentication (clerk)
 - [X] add image upload
 - [X] [taint](https://react.dev/reference/react/experimental_taintObjectReference) & [server-only](https://nextjs.org/blog/security-nextjs-server-components-actions#data-access-layer)
-- [ ] error management (sentry)
+- [X] error management (sentry)
 - [X] use Next/Image component
+- [ ] fix problems with [dynamic api links](https://nextjs.org/docs/messages/sync-dynamic-apis) in src/app/img/[id]/page.tsx
 - [ ] routing/ image page (parallel route)
 - [ ] delete button (w/ server actions)
 - [ ] analytics (posthog)
