@@ -16,20 +16,19 @@ async function Images() {
     <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {images.map((image) => (
         <div key={image.id} className="flex flex-col items-center">
-          <div className="relative h-48 w-full max-w-xs ">
-            <a href={`/img/${image.id}`}>
+          <div className="relative h-48 w-full max-w-xs">
+            <Link href={`/photos/${image.id}`}>
               <Image
                 src={image.url}
                 width={480}
                 height={480}
                 alt={image.name}
                 style={{ objectFit: "cover" }}
-                loading="lazy" // loading the image until it reaches a calculated distance from the viewport.
-                className="rounded-md shadow-md w-full h-full"
+                className="h-full w-full rounded-md"
               />
-            </a>
+            </Link>
           </div>
-          <div className=" text-sm mt-2 max-w-full text-left">{image.name}</div>
+          <div className="mt-2 max-w-full text-left text-sm">{image.name}</div>
         </div>
       ))}
     </div>
