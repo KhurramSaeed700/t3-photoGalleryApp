@@ -24,13 +24,17 @@ export function Modal({ children }: { children: React.ReactNode }) {
       }
     }
 
-    // Cleanup function to close modal when component unmounts
-    return () => {
-      if (dialogRef.current?.open) {
-        dialogRef.current.close();
-      }
+    const dialog = dialogRef.current;
+
+    // Add event listener for the 'cancel' event (triggered by Escape key)
+    const handleCancel = (event: Event) => {
+      event.preventDefault();
+      onDismiss();
     };
-  }, [mounted]);
+
+    dialog?.addEventListener("cancel", handleCancel);
+
+  }, [mounted, onDismiss]);
 
   function onDismiss() {
     router.back();
@@ -44,12 +48,12 @@ export function Modal({ children }: { children: React.ReactNode }) {
       <dialog ref={dialogRef} className="h-screen w-screen bg-zinc-900/50 p-8">
         <div className="relative mx-auto max-h-[85vh] max-w-[85vw]">
           {children}
-          <button
+          {/* <button
             onClick={onDismiss}
             className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white"
           >
             ✕
-          </button>
+          </button> */}
         </div>
       </dialog>
     </div>,
