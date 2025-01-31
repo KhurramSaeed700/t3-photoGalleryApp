@@ -41,17 +41,12 @@ export function Modal({ children }: { children: React.ReactNode }) {
 
   return createPortal(
     <div className="modal-backdrop fixed inset-0 bg-black/50">
-      <dialog
-        ref={dialogRef}
-        className="h-screen w-screen bg-red-200"
-        onClose={onDismiss}
-      >
-        <div className="relative">
+      <dialog ref={dialogRef} className="h-screen w-screen bg-zinc-900/50 p-8">
+        <div className="relative mx-auto max-h-[85vh] max-w-[85vw]">
           {children}
           <button
             onClick={onDismiss}
-            className="absolute right-0 top-0 rounded-full p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-            aria-label="Close modal"
+            className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white"
           >
             ✕
           </button>
