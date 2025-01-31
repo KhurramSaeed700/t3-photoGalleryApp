@@ -33,9 +33,6 @@ export function Modal({ children }: { children: React.ReactNode }) {
   }, [mounted]);
 
   function onDismiss() {
-    if (dialogRef.current?.open) {
-      dialogRef.current.close();
-    }
     router.back();
   }
 
@@ -46,7 +43,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
     <div className="modal-backdrop fixed inset-0 bg-black/50">
       <dialog
         ref={dialogRef}
-        className="modal fixed left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white p-6"
+        className="h-screen w-screen bg-red-200"
         onClose={onDismiss}
       >
         <div className="relative">
