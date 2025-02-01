@@ -13,8 +13,8 @@ async function Images() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {images.map((image) => (
+    <div className="p-4 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {[...images, ...images, ...images].map((image) => (
         <div key={image.id} className="flex flex-col items-center">
           <div className="relative h-48 w-full max-w-xs">
             <Link href={`/photos/${image.id}`}>
