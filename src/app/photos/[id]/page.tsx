@@ -20,7 +20,7 @@ export default  function PhotoPage({
         <FullPageImageView id={idAsNumber} />
     );
   } catch (error) {
-    console.error("Error loading image:", error);
+    console.error("Error loading image from photos/[id]:", error);
     notFound();
   }
 }

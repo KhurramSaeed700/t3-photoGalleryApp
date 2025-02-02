@@ -23,7 +23,7 @@ export default  function PhotoModal({
       </Modal>
     );
   } catch (error) {
-    console.error("Error loading image:", error);
+    console.error("Error loading image from @modal:", error);
     notFound();
   }
 }

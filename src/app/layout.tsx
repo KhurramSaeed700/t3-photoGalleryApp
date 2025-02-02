@@ -25,19 +25,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
-        <NextSSRPlugin
-          /**
-           * The `extractRouterConfig` will extract **only** the route configs
-           * from the router to prevent additional information from being
-           * leaked to the client. The data passed to the client is the same
-           * as if you were to fetch `/api/uploadthing` directly.
-           */
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
-        <body suppressHydrationWarning>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+        <body
+          suppressHydrationWarning
+          className="bg-gradient-to-br from-gray-900 to-black"
+        >
           <div className="grid h-screen grid-rows-[auto,1fr]">
             <TopNav />
-            <main className="overflow-y-scroll"> {children}</main>
+            <main className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 overflow-y-scroll">
+              {" "}
+              {children}
+            </main>
           </div>
           {modal}
           <div id="modal-root" />
