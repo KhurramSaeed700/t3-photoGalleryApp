@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { useUploadThing } from "~/utils/uploadthing";
 
 // inferred input off useUploadThing
@@ -16,7 +17,7 @@ const useUploadThingInputProps = (...args: Input) => {
     const result = await $ut.startUpload(selectedFile);
 
     console.log("uploaded files", result);
-    // TODO: presist result in state maybe?
+    // TODO: persist result in state maybe?
   };
   return {
     inputProps: {
@@ -50,13 +51,26 @@ function UploadSvg() {
 export function SimpleUploadButton() {
   const router = useRouter();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
+    onUploadBegin() {
+        // TODO: get toast working
+        // TODO: add a spinner
+      toast("Uploading...", {
+        duration: 100000,
+        id: "upload-begin",
+      });
+    },
     onClientUploadComplete() {
+      toast.dismiss("upload-begin");
+      toast("Upload complete!")
       router.refresh();
     },
   });
   return (
     <div>
-      <label htmlFor="upload-button" className="cursor-pointer"><UploadSvg /></label>
+      <label htmlFor="upload-button" className="cursor-pointer flex flex-row gap-2">
+        Upload 
+        <UploadSvg />
+      </label>
       <input
         type="file"
         id="upload-button"

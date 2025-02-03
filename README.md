@@ -29,8 +29,8 @@ This is a [T3 Stack](https://create.t3.gg/) project.
 - [X] [taint](https://react.dev/reference/react/experimental_taintObjectReference) & [server-only](https://nextjs.org/blog/security-nextjs-server-components-actions#data-access-layer)
 - [X] error management (sentry)
 - [X] use Next/Image component
-- [ ] fix problems with [dynamic api links](https://nextjs.org/docs/messages/sync-dynamic-apis) & [parallel routes](https://nextjs.org/docs/app/building-your-application/routing/parallel-routes)
-- [ ] routing/ image page (parallel route)
+- [X] fix problems with [dynamic api links](https://nextjs.org/docs/messages/sync-dynamic-apis) & [parallel routes](https://nextjs.org/docs/app/building-your-application/routing/parallel-routes)
+- [X] routing/ image page (parallel route)
 - [ ] delete button (w/ server actions)
 - [ ] analytics (posthog)
 - [ ] ratelimiting (upstash)

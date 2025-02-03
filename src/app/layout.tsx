@@ -8,6 +8,7 @@ import { TopNav } from "./_components/topNav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "~/app/api/uploadthing/core";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Car Gallery",
@@ -33,12 +34,12 @@ export default function RootLayout({
           <div className="grid h-screen grid-rows-[auto,1fr]">
             <TopNav />
             <main className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 overflow-y-scroll">
-              {" "}
               {children}
             </main>
           </div>
           {modal}
           <div id="modal-root" />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
