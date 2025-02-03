@@ -1,12 +1,13 @@
 "use client";
 
-import { type ElementRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 
 export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const dialogRef = useRef<ElementRef<"dialog">>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
@@ -34,10 +35,24 @@ export function Modal({ children }: { children: React.ReactNode }) {
 
     dialog?.addEventListener("cancel", handleCancel);
 
-  }, [mounted, onDismiss]);
+    // Function to close modal and navigate to home when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        onDismiss();
+      }
+    };
+
+    // Listen for clicks outside the modal
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up the event listener when component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mounted]);
 
   function onDismiss() {
-    router.back();
+    router.back(); // Redirect to home page
   }
 
   // Don't render anything until mounted and modalRoot is available
@@ -46,8 +61,9 @@ export function Modal({ children }: { children: React.ReactNode }) {
   return createPortal(
     <div className="modal-backdrop fixed inset-0 bg-black/50">
       <dialog ref={dialogRef} className="h-screen w-screen bg-zinc-900/50 p-8">
-        <div className="relative mx-auto max-h-[85vh] max-w-[85vw]">
+        <div ref={modalRef} className="relative mx-auto max-h-[85vh] max-w-[85vw]">
           {children}
+          {/* Close button (optional) */}
           {/* <button
             onClick={onDismiss}
             className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white"
@@ -57,6 +73,6 @@ export function Modal({ children }: { children: React.ReactNode }) {
         </div>
       </dialog>
     </div>,
-    modalRoot,
+    modalRoot
   );
 }
