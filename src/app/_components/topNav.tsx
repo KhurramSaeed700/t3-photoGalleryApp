@@ -1,13 +1,11 @@
-"use client";
 
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
-import { UploadButton } from "~/utils/uploadthing";
+
 import Link from "next/link";
-import { Car, Upload } from "lucide-react";
+import { Car } from "lucide-react";
+import { SimpleUploadButton } from "./simpleUploadButton";
 
 export function TopNav() {
-  const router = useRouter();
   return (
     <nav className="flex w-full items-center justify-between border-b border-white/10 bg-gradient-to-r from-gray-900 to-black px-6 py-4 backdrop-blur-lg">
       <Link 
@@ -29,15 +27,9 @@ export function TopNav() {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <UploadButton
-            endpoint="imageUploader"
-            onClientUploadComplete={() => router.refresh()}
-            appearance={{
-              button: "h-10 px-4 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg",
-              allowedContent: "text-gray-400",
-            }}
-            className="flex items-center gap-2"
-          />
+
+          <SimpleUploadButton />
+          
           <UserButton appearance={{
             elements: {
               userButtonAvatarBox: "h-9 w-9",
