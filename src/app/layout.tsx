@@ -8,7 +8,7 @@ import { TopNav } from "./_components/topNav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "~/app/api/uploadthing/core";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "~/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Car Gallery",
