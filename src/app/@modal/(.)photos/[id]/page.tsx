@@ -1,12 +1,8 @@
 import { Modal } from "./modal";
 import { notFound } from "next/navigation";
-import FullPageImageView from "~/app/components/full-img-page";
+import FullPageImageView from "~/app/appComponents/full-img-page";
 
-export default  function PhotoModal({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function PhotoModal({ params }: { params: { id: string } }) {
   // Wait for params to be available
   const photoId = params.id;
   const idAsNumber = Number(photoId);
@@ -16,7 +12,6 @@ export default  function PhotoModal({
   }
 
   try {
-    
     return (
       <Modal>
         <FullPageImageView id={idAsNumber} />

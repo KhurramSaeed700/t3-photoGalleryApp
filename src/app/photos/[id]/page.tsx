@@ -1,11 +1,7 @@
 import { notFound } from "next/navigation";
-import FullPageImageView from "~/app/components/full-img-page";
+import FullPageImageView from "~/app/appComponents/full-img-page";
 
-export default  function PhotoPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function PhotoPage({ params }: { params: { id: string } }) {
   // Wait for params to be available
   const photoId = params.id;
   const idAsNumber = Number(photoId);
@@ -15,10 +11,7 @@ export default  function PhotoPage({
   }
 
   try {
-    
-    return (
-        <FullPageImageView id={idAsNumber} />
-    );
+    return <FullPageImageView id={idAsNumber} />;
   } catch (error) {
     console.error("Error loading image from photos/[id]:", error);
     notFound();

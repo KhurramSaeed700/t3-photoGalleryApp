@@ -29,6 +29,9 @@ async function Images() {
               width={480}
               height={480}
               alt={image.name}
+              placeholder="blur"
+              blurDataURL="{base64}"
+              priority={false}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
