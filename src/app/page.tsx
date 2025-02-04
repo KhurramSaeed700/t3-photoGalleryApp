@@ -11,7 +11,7 @@ async function Images() {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-16 text-gray-400">
         <ImageIcon className="h-16 w-16 text-purple-400/50" />
-        <p className="text-lg">No cars in the gallery yet</p>
+        <p className="text-lg">No images in the gallery yet</p>
       </div>
     );
   }

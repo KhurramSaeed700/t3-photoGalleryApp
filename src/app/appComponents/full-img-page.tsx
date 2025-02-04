@@ -12,15 +12,15 @@ export default async function FullPageImageView(props: { id: number }) {
   const uploader = await clerk.users.getUser(image.userId).catch(() => null);
 
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden bg-gradient-to-br from-gray-900 to-black md:flex-row">
+    <div className="flex h-full w-full flex-col bg-gradient-to-br from-gray-900 to-black md:flex-row">
       {/* Image Container */}
       <div className="flex flex-1 items-center justify-center p-8">
         <Image
           src={image.url}
           alt={image.name || "Uploaded image"}
           layout="intrinsic"
-          width={800}
-          height={600}
+          width={480}
+          height={480}
           className="h-auto max-h-[80vh] w-full max-w-4xl rounded-xl object-contain shadow-2xl transition-transform duration-300 hover:scale-105"
         />
       </div>
