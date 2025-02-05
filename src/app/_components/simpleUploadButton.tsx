@@ -25,7 +25,7 @@ const useUploadThingInputProps = (...args: Input) => {
     inputProps: {
       onChange,
       multiple: ($ut.permittedFileInfo?.config?.image?.maxFileCount ?? 1) > 1,
-      accepts: "image/*",
+      accept: "image/*",
     },
     isUploading: $ut.isUploading,
   };
@@ -100,7 +100,7 @@ export function SimpleUploadButton() {
     <div>
       <label
         htmlFor="upload-button"
-        className="flex cursor-pointer flex-row gap-2"
+        className="flex items-center cursor-pointer flex-row gap-2"
       >
         Upload
         <UploadSvg />
