@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import FullPageImageView from "~/app/appComponents/full-img-page";
+import FullPageImageView from "~/app/common/full-img-page";
 
 export default function PhotoPage({ params }: { params: { id: string } }) {
   // Wait for params to be available
