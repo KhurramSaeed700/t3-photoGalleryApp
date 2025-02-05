@@ -19,11 +19,11 @@ async function Images() {
   return (
     <div className="grid grid-cols-2 gap-6 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {images.map((image) => (
-        <div
-          key={image.id}
-          className="hover:shadow-glow group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent transition-all hover:border-white/20"
-        >
-          <Link href={`/photos/${image.id}`} className="block">
+        <Link href={`/photos/${image.id}`} className="block">
+          <div
+            key={image.id}
+            className="hover:shadow-glow group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent transition-all hover:border-white/20"
+          >
             <Image
               src={image.url}
               width={480}
@@ -39,8 +39,8 @@ async function Images() {
                 {image.name}
               </p>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );
@@ -67,7 +67,7 @@ export default async function HomePage() {
             <circle cx="9" cy="9" r="2" />
             <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
           </svg>
-          <p className="text-xl pt-3">Sign in to view your collection</p>
+          <p className="pt-3 text-xl">Sign in to view your collection</p>
         </div>
       </SignedOut>
       <SignedIn>
