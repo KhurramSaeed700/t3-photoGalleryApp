@@ -31,6 +31,6 @@ This is a [T3 Stack](https://create.t3.gg/) project.
 - [X] use Next/Image component
 - [X] fix problems with [dynamic api links](https://nextjs.org/docs/messages/sync-dynamic-apis) & [parallel routes](https://nextjs.org/docs/app/building-your-application/routing/parallel-routes)
 - [X] routing/ image page (parallel route)
-- [ ] delete button (w/ server actions)
+- [X] delete button (w/ server actions)
 - [X] analytics (posthog)
 - [ ] ratelimiting (upstash)

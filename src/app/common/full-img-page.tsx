@@ -1,12 +1,15 @@
-import { getImageById } from "~/server/queries";
+import { deleteImage, getImageById } from "~/server/queries";
 import { notFound } from "next/navigation";
 import { clerkClient } from "@clerk/nextjs/server";
 import { CalendarDays, Upload, User } from "lucide-react";
 import Image from "next/image";
+import { Button } from "~/components/ui/button";
 
-export default async function FullPageImageView(props: { id: number }) {
-  const image = await getImageById(props.id);
+export default async function FullPageImageView(props: { photoId: number }) {
+  const image = await getImageById(props.photoId);
   if (!image) notFound();
+
+  const idAsNumber = Number(props.photoId);
 
   const clerk = await clerkClient();
   const uploader = await clerk.users.getUser(image.userId).catch(() => null);
@@ -62,6 +65,20 @@ export default async function FullPageImageView(props: { id: number }) {
               })}
             </span>
           </div>
+        </div>
+
+        {/* Delete Button */}
+        <div className="p-2">
+          <form
+            action={async () => {
+              "use server";
+              await deleteImage(idAsNumber);
+            }}
+          >
+            <Button type="submit" variant="destructive">
+              Delete
+            </Button>
+          </form>
         </div>
       </div>
     </div>

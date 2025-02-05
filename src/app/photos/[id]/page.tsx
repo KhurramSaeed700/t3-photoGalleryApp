@@ -11,7 +11,7 @@ export default function PhotoPage({ params }: { params: { id: string } }) {
   }
 
   try {
-    return <FullPageImageView id={idAsNumber} />;
+    return <FullPageImageView photoId={idAsNumber} />;
   } catch (error) {
     console.error("Error loading image from photos/[id]:", error);
     notFound();

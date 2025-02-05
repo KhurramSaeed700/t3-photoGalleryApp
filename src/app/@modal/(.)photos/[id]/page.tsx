@@ -14,7 +14,7 @@ export default function PhotoModal({ params }: { params: { id: string } }) {
   try {
     return (
       <Modal>
-        <FullPageImageView id={idAsNumber} />
+        <FullPageImageView photoId={idAsNumber} />
       </Modal>
     );
   } catch (error) {
