@@ -18,6 +18,7 @@ async function Images() {
 
   return (
     <div className="grid grid-cols-2 gap-6 p-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {/* Display images Home Page */}
       {images.map((image) => (
         <Link href={`/photos/${image.id}`} className="block">
           <div
